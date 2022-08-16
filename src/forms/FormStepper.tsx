@@ -1,8 +1,5 @@
 import React, { Fragment } from 'react';
-import FormFieldRenderer from "@manojadams/metaforms-core/dist/core/form-field-renderer";
-import { IField } from '@manojadams/metaforms-core/dist/constants/model-interfaces';
-import { IEventPayload } from '@manojadams/metaforms-core/dist/constants/common-interface';
-import { BaseFormStepper } from '@manojadams/metaforms-core';
+import { BaseFormStepper, FormFieldRenderer, IEventPayload, IField } from '@manojadams/metaforms-core';
 
 export class FormStepper extends BaseFormStepper {
     orientation: string | undefined;

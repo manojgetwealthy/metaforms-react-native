@@ -1,12 +1,22 @@
 import React, { Fragment } from 'react';
 import {BaseFormControl} from '@manojadams/metaforms-core';
-import { IRenderField } from '@manojadams/metaforms-core/dist/constants/common-interface';
-import { MandatoryLabel } from "@manojadams/metaforms-core/dist/core/form-controls/common";
-import FormUtils from '@manojadams/metaforms-core/dist/utils/FormUtil';
-import { MSGS } from '@manojadams/metaforms-core/dist/constants';
+import { IRenderField } from '@manojadams/metaforms-core';
 import { TextInput } from "react-native";
 
 export default class FormControl extends BaseFormControl {
+    variant: string;
+    size: any;
+    constructor(props: IRenderField){
+        super(props);
+        this.variant = 'standard';
+    }
+    render(): JSX.Element {
+        const muiVariant = this.context.getThemeProp('mui','variant');
+        const muiSize = this.context.getThemeProp('mui','size');
+        this.variant = muiVariant ? muiVariant : 'standard';
+        this.size = muiSize ? muiSize : undefined;
+        return super.render();
+    }
     month(): JSX.Element {
         throw new Error('Method not implemented.');
     }
@@ -51,19 +61,6 @@ export default class FormControl extends BaseFormControl {
     }
     button(): JSX.Element {
         throw new Error('Method not implemented.');
-    }
-    variant: string;
-    size: any;
-    constructor(props: IRenderField){
-        super(props);
-        this.variant = 'standard';
-    }
-    render(): JSX.Element {
-        const muiVariant = this.context.getThemeProp('mui','variant');
-        const muiSize = this.context.getThemeProp('mui','size');
-        this.variant = muiVariant ? muiVariant : 'standard';
-        this.size = muiSize ? muiSize : undefined;
-        return super.render();
     }
     getVariant() {
         return this.field.meta?.mui?.variant ? this.field.meta.mui.variant : this.variant;

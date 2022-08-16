@@ -1,8 +1,5 @@
 import React, { Fragment } from 'react';
-import {BaseFormGroup} from "@manojadams/metaforms-core";
-import Sections from "@manojadams/metaforms-core/dist/core/form-group/common/Sections";
-import FormUtils from '@manojadams/metaforms-core/dist/utils/FormUtil';
-import { IField } from '@manojadams/metaforms-core/dist/constants/model-interfaces';
+import {BaseFormGroup, FormUtils, Sections} from "@manojadams/metaforms-core";
 
 export default class FormGroup extends BaseFormGroup {
     tabs(): JSX.Element {
